@@ -1,0 +1,5 @@
+<mat-grid-list [cols]="breakpoint" rowHeight="2:2" (window:resize)="onResize($event)">
+    <mat-grid-tile *ngFor="let tienda of tiendas">
+        <app-store [tienda]='tienda'></app-store>
+    </mat-grid-tile>
+</mat-grid-list>

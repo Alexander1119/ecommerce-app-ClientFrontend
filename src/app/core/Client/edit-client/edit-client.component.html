@@ -1,0 +1,39 @@
+<mat-card>
+    <mat-card-title>
+        Editar informacion
+    </mat-card-title>
+    <mat-dialog-content>
+        <form [formGroup]='Cliente' action="">
+
+            <mat-form-field appearance="fill">
+                <mat-label>Ingrese su primer nombre: </mat-label>
+                <input [(ngModel)]="clientData.name" formControlName='firstName' type='text' matInput placeholder="Primer nombre">
+            </mat-form-field>
+            <mat-form-field appearance="fill">
+                <mat-label>Ingrese su segundo nombre: </mat-label>
+                <input [(ngModel)]="clientData.secondName" formControlName='secondName' type='text' matInput placeholder="Segundo nombre">
+            </mat-form-field>
+            <mat-form-field appearance="fill">
+                <mat-label>Ingrese su primer apellido: </mat-label>
+                <input [(ngModel)]="clientData.lastName" formControlName='firstLastName' type='text' matInput placeholder="Apellido">
+            </mat-form-field>
+            <mat-form-field appearance="fill">
+                <mat-label>Ingrese su segundo apellido: </mat-label>
+                <input [(ngModel)]="clientData.secondLastName" formControlName='secondLastName' type='text' matInput placeholder="Segundo apellido">
+            </mat-form-field>
+
+            <mat-form-field appearance="fill">
+                <mat-label>Ingrese su correo: </mat-label>
+                <input [(ngModel)]="clientData.mail" formControlName='email' type='text' matInput placeholder="Correo">
+
+            </mat-form-field>
+
+            <mat-form-field appearance="fill">
+                <mat-label>Ingrese su contraseña: </mat-label>
+                <input [(ngModel)]="clientData.password" formControlName='password' matInput [type]="hide ? 'password' : 'text'" type="password" placeholder="Contraseña">
+            </mat-form-field>
+
+            <button (click)='update()' type="submit" mat-raised-button color='primary' cdkFocusInitial>Update</button>
+        </form>
+    </mat-dialog-content>
+</mat-card>

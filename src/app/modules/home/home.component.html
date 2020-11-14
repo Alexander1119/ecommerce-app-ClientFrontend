@@ -1,0 +1,56 @@
+<!-- <div class="wrapper" [class.unavailable]='!product.available'>
+    <div class="info">
+        <div class="img-wrapper">
+            <img class="img">
+            <div class="img-placeholder"></div>
+        </div>
+        <h5 class="title">{{product.name}}</h5>
+        <p class="price">$<span>{{product.price}}</span></p>
+        <div class="details">
+            <div class="available" *ngIf='product.available'>
+                <hr>
+                <div class="row">
+                    <div class="col-8-sm view-details-wrapper">
+                        <button type="button" class="view" (click)='onProductClick()'>Ver DETALLE</button>
+                    </div>
+                    <div class="col-4-sm add-cart-wrapper">
+                        <button type="button" class="cart" (click)="onAddToCart()"><img src="../../assets/cart_primary.svg" alt="" /></button>
+                    </div>
+                </div>
+            </div>
+            <div class="not-available" *ngIf='!product.available'>
+                <hr>
+                <p>No disponible</p>
+            </div>
+        </div>
+        span class="category-name" *ngFor='let category of product.categories'>{{category}}</span 
+        <div class="detail-view" [class.active]='detailViewActive'>
+            <div class="bg" [class.shown]='detailViewActive'></div>
+            <div class="info-wrapper">
+                <p class="d-holder d-title">{{product.name}}</p>
+                <p class="d-holder d-price">$ {{product.price}}</p>
+                <p class="d-holder d-description">{{product.description}}</p>
+            </div>
+            <button type="button" class="hide-detail-btn" (click)='onProductClick()'>Ocultar</button>
+        </div>
+    </div>
+
+</div> -->
+
+<mat-card class="example-card">
+    <mat-card-header>
+        <div mat-card-avatar></div>
+        <mat-card-title>Shiba Inu</mat-card-title>
+        <mat-card-subtitle>Dog Breed</mat-card-subtitle>
+    </mat-card-header>
+    <img mat-card-image src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSVOIxkecyJUpkfqgYt69oGSZpK7qFUwJQ4wg&usqp=CAU" alt="Photo of a Shiba Inu">
+    <mat-card-content>
+        <p>
+            Llave angular para Tubo de Abasto con filtro Hembra
+        </p>
+    </mat-card-content>
+    <mat-card-actions>
+        <button mat-button><mat-icon>shopping_cart</mat-icon></button>
+        <button mat-button><mat-icon>details</mat-icon></button>
+    </mat-card-actions>
+</mat-card>

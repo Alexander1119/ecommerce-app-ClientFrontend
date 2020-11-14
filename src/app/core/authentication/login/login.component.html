@@ -1,0 +1,19 @@
+<div mat-dialog-content>
+    <mat-card-title>
+        Iniciar sesion
+    </mat-card-title>
+    <mat-form-field>
+        <mat-label>Nombre de usuario</mat-label>
+        <input matInput [(ngModel)]='data' required='required' type='text'>
+    </mat-form-field>
+
+    <mat-form-field hintLabel="Min 8 characters">
+        <mat-label>Contraseña</mat-label>
+        <input matInput #input [(ngModel)]='password' minlength="8" maxlength="20" type='password' required='required'>
+        <mat-hint ALIGN="end">{{input.value?.length || 8}}/20</mat-hint>
+    </mat-form-field>
+</div>
+<div mat-dialog-actions>
+    <button mat-button color='primary' (click)="cancelar()">Cancelar</button>
+    <button mat-button color='primary' [mat-dialog-close]='data' (click)='login()' cdkFocusInitial>Aceptar</button>
+</div>

@@ -1,0 +1,42 @@
+<mat-card>
+    <mat-card-title>
+        Registrarse
+    </mat-card-title>
+    <mat-dialog-content>
+        <form [formGroup]='Cliente' action="">
+            <mat-form-field appearance="fill">
+                <mat-label>Ingrese su nombre de usuario: </mat-label>
+                <input [(ngModel)]="nickName" formControlName='nickName' type='text' matInput placeholder="Nombre de usuario">
+            </mat-form-field>
+            <mat-form-field appearance="fill">
+                <mat-label>Ingrese su primer nombre: </mat-label>
+                <input [(ngModel)]="firstName" formControlName='firstName' type='text' matInput placeholder="Primer nombre">
+            </mat-form-field>
+            <mat-form-field appearance="fill">
+                <mat-label>Ingrese su segundo nombre: </mat-label>
+                <input [(ngModel)]="secondName" formControlName='secondName' type='text' matInput placeholder="Segundo nombre">
+            </mat-form-field>
+            <mat-form-field appearance="fill">
+                <mat-label>Ingrese su primer apellido: </mat-label>
+                <input [(ngModel)]="firstLastName" formControlName='firstLastName' type='text' matInput placeholder="Apellido">
+            </mat-form-field>
+            <mat-form-field appearance="fill">
+                <mat-label>Ingrese su segundo apellido: </mat-label>
+                <input [(ngModel)]="secondLastName" formControlName='secondLastName' type='text' matInput placeholder="Segundo apellido">
+            </mat-form-field>
+
+            <mat-form-field appearance="fill">
+                <mat-label>Ingrese su correo: </mat-label>
+                <input [(ngModel)]="email" formControlName='email' type='text' matInput placeholder="Correo">
+
+            </mat-form-field>
+
+            <mat-form-field appearance="fill">
+                <mat-label>Ingrese su contraseña: </mat-label>
+                <input [(ngModel)]="password" formControlName='password' matInput [type]="hide ? 'password' : 'text'" type="password" placeholder="Contraseña">
+            </mat-form-field>
+
+            <button (click)='signin()' type="submit" mat-raised-button color='primary'>Signin</button>
+        </form>
+    </mat-dialog-content>
+</mat-card>

@@ -1,0 +1,9 @@
+<!-- <div class="componente-producto" *ngFor="let producto of productos">
+    <app-product [producto]='producto'></app-product>
+</div> -->
+
+<mat-grid-list cols="3" rowHeight="600px">
+    <mat-grid-tile *ngFor="let producto of productos">
+        <app-product [producto]='producto'></app-product>
+    </mat-grid-tile>
+</mat-grid-list>

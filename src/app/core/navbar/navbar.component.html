@@ -1,0 +1,76 @@
+<!-- <mat-sidenav-container class="sidenav-container">
+
+    <mat-sidenav-content>
+        <mat-toolbar color="primary">
+            <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+          <mat-icon>menu</mat-icon>
+          </button>
+            <span>My App</span>
+            <span class="example-spacer"></span>
+
+
+            <a mat-button routerLink='home'>Home<mat-icon>home</mat-icon></a>
+
+            <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
+              <mat-icon>share</mat-icon>
+        </button>
+          <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+            <mat-icon>account_circle</mat-icon>
+          </button>
+            <mat-menu #menu="matMenu">
+
+                <button mat-menu-item (click)="login()">
+                <mat-icon>person</mat-icon>
+                <span>Iniciar sesion</span>
+              </button>
+                <button mat-menu-item (click)="signin()">
+                <mat-icon>person_add</mat-icon>
+                <span>Registrarse</span>
+              </button>
+            </mat-menu>
+
+
+        </mat-toolbar>
+
+    </mat-sidenav-content>
+</mat-sidenav-container> -->
+
+
+<mat-toolbar color='primary'>
+    <span>BI-AS</span>
+
+    <div class="spacer"></div>
+
+    <a mat-button routerLink='listProduct'>Productos<mat-icon>category</mat-icon></a>
+    <a mat-button routerLink='listStore'>Tiendas<mat-icon>store</mat-icon></a>
+
+    <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+      <mat-label>{{nombreToolbar}}</mat-label>
+      <mat-icon>account_circle</mat-icon>
+    </button>
+    <mat-menu #menu="matMenu">
+
+
+        <button mat-menu-item (click)="login()" *ngIf="displaylogin">
+          <mat-icon>person</mat-icon>
+          <span>Iniciar sesion</span>
+        </button>
+        <button mat-menu-item (click)="signin()" *ngIf="displaylogin">
+          <mat-icon>person_add</mat-icon>
+          <span>Registrarse</span>
+        </button>
+        <button mat-menu-item (click)="editPerson()" *ngIf="!displaylogin">
+          <mat-icon>settings</mat-icon>
+          <span>Editar perfil</span>
+        </button>
+
+        <button mat-menu-item (click)="logout() " *ngIf="!displaylogin">
+          <mat-icon>phonelink_off</mat-icon>
+          <span>Cerrar sesion</span>
+        </button>
+    </mat-menu>
+
+    <!-- <a mat-button routerLink='login'>Iniciar Sesion <mat-icon>person</mat-icon></a>
+    <a mat-button routerLink='signin'>Registrarse <mat-icon>person_add</mat-icon></a>
+ -->
+</mat-toolbar>
