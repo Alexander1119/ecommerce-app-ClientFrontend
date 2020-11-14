@@ -23,6 +23,7 @@ import {MatCardModule} from '@angular/material/card';
 import {MatInputModule} from '@angular/material/input';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import { FormsModule } from '@angular/forms';
+import {MatTableModule} from '@angular/material/table';
 
 
 
@@ -83,6 +84,7 @@ import { ProductComponent } from './modules/product/product/product.component';
     HttpClientModule,
     ReactiveFormsModule,
     MatSnackBarModule,
+    MatTableModule,
     FormsModule,
     NgbModule,
     NgbModalModule
