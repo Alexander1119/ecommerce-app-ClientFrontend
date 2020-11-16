@@ -59,7 +59,7 @@ import { ProductComponent } from './modules/product/product/product.component';
     ListStoreComponent,
     ListProductComponent,
     CartComponent,
-    ProductComponent
+    ProductComponent,
   ],
   imports: [
     BrowserModule,

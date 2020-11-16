@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { ServiceService } from '../../../core/Service/service.service';
 import { Producto } from '../../../Shared/Models/Producto';
 
@@ -23,4 +23,10 @@ export class ListProductComponent implements OnInit {
     });
   }
 
+  search:string;
+  receiveMessage($event) {
+    this.search = $event;
+    console.log("lo que se va a buscar es: "+this.search);
+    
+  }
 }

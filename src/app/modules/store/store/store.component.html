@@ -1,12 +1,39 @@
-<mat-card class="example-card">
+<!-- <mat-card class="example-card">
     <mat-card-header>
         <mat-card-title>{{tienda.nameStore}}</mat-card-title>
     </mat-card-header>
-    <img ALIGN="CENTER" mat-card-image src="{{tienda.urlImage}}" alt="{{tienda.nameImage}}">
+    <img class="bd-placeholder-img" width="300px" height="225" src="{{tienda.urlImage}}">
     <mat-card-content>
         <p>{{tienda.locationStore}} </p>
     </mat-card-content>
     <mat-card-actions>
         <button class="buttonclick" mat-raised-button color='primary'>VER TIENDA</button>
     </mat-card-actions>
-</mat-card>
+</mat-card> -->
+
+
+
+<!-- <div class="card-body" >
+    <img class="bd-placeholder-img" width="300px" height="225" src="{{tienda.urlImage}}">
+
+    <p class="card-text">{{tienda.nameStore}}<br></p>
+
+    <p class="card-text">{{tienda.locationStore}}<br></p>
+    <div class="btn-group">
+        <button type="button" ALIGN="CENTER" class="btn btn-info btn-lg btn-block">Ver tienda</button>
+    </div>
+</div> -->
+
+<div class="card mb-4 shadow-sm">
+    <div class="card-header">
+        <h4 class="my-0 font-weight-normal">{{tienda.nameStore}}</h4>
+    </div>
+    <img class="bd-placeholder-img" width="250px" height="150px" src="{{tienda.urlImage}}">
+
+    <div class="card-body">
+        <ul class="list-unstyled mt-3 mb-4">
+            <li>{{tienda.locationStore}}</li>
+        </ul>
+        <button type="button" class="btn btn-lg btn-block btn-info">Contact us</button>
+    </div>
+</div>

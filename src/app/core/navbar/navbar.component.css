@@ -56,7 +56,12 @@ h1.example-app-name {
     flex: 1 1 auto;
 }
 
+.loginsignin {
+    width: auto;
+    margin: 10PX;
+}
 
-/* button {
-    flex: 1 0 auto;
-} */
+.iconName {
+    width: auto;
+    margin: 10px;
+}

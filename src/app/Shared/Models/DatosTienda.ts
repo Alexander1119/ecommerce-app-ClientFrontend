@@ -32,7 +32,7 @@ export class DatosTienda {
     "idStore": 5,
     "nameStore": "Zona cel",
     "locationStore": "Calle Boivia",
-    "urlImage": "https://lh3.googleusercontent.com/proxy/TIHzAPH7MoESt5n8gNlgY1L1kJ1bbI-RHRiTJi4tBIUwZDyfdwqWI3obnm_u2qncglC4k4Qc2QlNd0Znv5VJmFjjngJd_d0OFrFJi7kpgUs20knlPboYa8cQJxg",
+    "urlImage": "https://jockeyplaza.com.pe/resources/1447044584ycGMato3uTQEjCDFyKdO5rIZdfbVSWpendiente1400x402jpg.jpg",
     "nameImage": "tienda"
 }
     ]`;

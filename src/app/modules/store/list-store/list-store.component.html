@@ -1,5 +1,19 @@
-<mat-grid-list [cols]="breakpoint" rowHeight="2:2" (window:resize)="onResize($event)">
+<mat-grid-list [cols]="breakpoint" rowHeight="2:2.5" (window:resize)="onResize($event)">
     <mat-grid-tile *ngFor="let tienda of tiendas">
-        <app-store [tienda]='tienda'></app-store>
+        <div class="card mb-4 shadow-sm">
+            <div class="card-header">
+                <h4 class="my-0 font-weight-normal">{{tienda.nameStore}}</h4>
+            </div>
+            <img class="bd-placeholder-img" width="250px" height="150px" src="{{tienda.urlImage}}">
+
+            <div class="card-body">
+                <ul class="list-unstyled mt-3 mb-4">
+                    <li>{{tienda.locationStore}}</li>
+                </ul>
+                <button type="button" class="btn btn-lg btn-block btn-info">VER TIENDA</button>
+            </div>
+        </div>
     </mat-grid-tile>
 </mat-grid-list>
+
+<p (messageEvent)="receiveMessage($event)"></p>

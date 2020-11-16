@@ -1,4 +1,4 @@
-import {ChangeDetectorRef, Component, OnDestroy} from '@angular/core';
+import {ChangeDetectorRef, Component, OnDestroy, Output, EventEmitter,Input} from '@angular/core';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Observable } from 'rxjs';
 import { map, shareReplay } from 'rxjs/operators';
@@ -129,6 +129,15 @@ export class NavbarComponent {
   logout(){
     this.nombreToolbar='';
     this.displaylogin=true;
+  }
+
+  search : string;
+  @Output() messageEvent = new EventEmitter<string>();
+
+  buscar(){
+    console.log("Se va a buscar "+ this.search);
+    
+    this.messageEvent.emit(this.search);
   }
 }
 

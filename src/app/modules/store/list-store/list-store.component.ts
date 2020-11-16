@@ -38,5 +38,10 @@ export class ListStoreComponent implements OnInit {
     this.tiendas = this.service.listStore();
     console.log('Lista de tienda: %o', this.tiendas);
   }
-  
+  search:string;
+  receiveMessage($event) {
+    this.search = $event;
+    console.log("en store lo que se va a buscar es: "+this.search);
+    
+  }
 }
