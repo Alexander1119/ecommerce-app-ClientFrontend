@@ -132,12 +132,10 @@ export class NavbarComponent {
   }
 
   search : string;
-  @Output() messageEvent = new EventEmitter<string>();
-
+ 
   buscar(){
     console.log("Se va a buscar "+ this.search);
-    
-    this.messageEvent.emit(this.search);
+    localStorage.setItem( "search", this.search);
   }
 }
 

@@ -64,4 +64,5 @@ h1.example-app-name {
 .iconName {
     width: auto;
     margin: 10px;
+    flex: 1 1 auto;
 }

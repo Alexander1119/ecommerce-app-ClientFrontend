@@ -9,7 +9,7 @@ import { ServiceService } from '../../../core/Service/service.service';
   styleUrls: ['./list-store.component.css']
 })
 export class ListStoreComponent implements OnInit {
-
+  filterPost='';
   tiendas: Tienda[] = [];
   breakpoint: number;
   proporsion:string;
@@ -18,6 +18,8 @@ export class ListStoreComponent implements OnInit {
   ngOnInit(): void {
     this.cargarListStore();
      this.breakpoint=3;
+
+    //  this.updateListStore();
   }
   onResize(event) {
     let tampan = screen.width;
@@ -38,10 +40,28 @@ export class ListStoreComponent implements OnInit {
     this.tiendas = this.service.listStore();
     console.log('Lista de tienda: %o', this.tiendas);
   }
+
   search:string;
-  receiveMessage($event) {
-    this.search = $event;
-    console.log("en store lo que se va a buscar es: "+this.search);
+  // receiveMessage() {
+  //    this.search = localStorage.getItem("search");
+  //   console.log("en store lo que se va a buscar es: "+this.search);
     
+  // }
+
+  listStoreToSearch: Tienda[] = [];
+
+  updateListStore(){
+    
+     this.tiendas.forEach(element => {
+       if (this.search!=undefined) {
+        if (element.nameStore==this.search) {
+          this.listStoreToSearch.push(element);
+          this.tiendas=this.listStoreToSearch;
+        }
+       }else{
+        this.tiendas = this.service.listStore();
+       }
+     });
+      
   }
 }
