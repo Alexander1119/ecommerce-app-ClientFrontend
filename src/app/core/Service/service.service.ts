@@ -30,8 +30,8 @@ export class ServiceService {
     return this.http.post<Cliente>(this.client + '/addUserClient' , client);
   }
 
-  dataClientwithNickname(nickname : string){
-    return this.http.get<Cliente>(this.person + '/usernick/'+nickname);
+  dataClientwithNickname(nickname: string){
+    return this.http.get<Cliente>(this.person + '/usernick/' + nickname);
   }
 
   editUser(client:Cliente){
@@ -75,5 +75,11 @@ export class ServiceService {
 
     });
     return this.tiendas;
+  }
+
+
+  store(id: number){
+    return this.http.get<Tienda>(this.person + '/usernick/'+id);
+  
   }
 }

@@ -6,6 +6,7 @@ import { HomeComponent } from './modules/home/home.component';
 import { ListProductComponent } from './modules/product/list-product/list-product.component';
 import { ListStoreComponent } from './modules/store/list-store/list-store.component';
 import { CartComponent } from './modules/product/cart/cart.component';
+import { StoreComponent } from './modules/store/store/store.component';
 
 const routes: Routes = [
   {path: 'login', component: LoginComponent},
@@ -13,7 +14,9 @@ const routes: Routes = [
   {path: 'home', component: HomeComponent},
   {path: 'listProduct', component: ListProductComponent},
   {path: 'listStore', component: ListStoreComponent},
-  {path: 'cart', component: CartComponent}
+  {path: 'cart', component: CartComponent},
+  {path: 'store', component: StoreComponent}
+
 
 
 

@@ -1,39 +1,43 @@
-<!-- <mat-card class="example-card">
-    <mat-card-header>
-        <mat-card-title>{{tienda.nameStore}}</mat-card-title>
-    </mat-card-header>
-    <img class="bd-placeholder-img" width="300px" height="225" src="{{tienda.urlImage}}">
-    <mat-card-content>
-        <p>{{tienda.locationStore}} </p>
-    </mat-card-content>
-    <mat-card-actions>
-        <button class="buttonclick" mat-raised-button color='primary'>VER TIENDA</button>
-    </mat-card-actions>
-</mat-card> -->
-
-
-
-<!-- <div class="card-body" >
-    <img class="bd-placeholder-img" width="300px" height="225" src="{{tienda.urlImage}}">
-
-    <p class="card-text">{{tienda.nameStore}}<br></p>
-
-    <p class="card-text">{{tienda.locationStore}}<br></p>
-    <div class="btn-group">
-        <button type="button" ALIGN="CENTER" class="btn btn-info btn-lg btn-block">Ver tienda</button>
+<div class="d-md-flex flex-md-equal w-100 my-md-3 pl-md-3">
+    <div class="bg-light mr-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
+        <div class="my-3 p-3">
+            <h2 class="display-5">Another headline</h2>
+            <p class="lead">And an even wittier subheading.</p>
+        </div>
+        <div class="bg-white shadow-sm mx-auto" style="width: 80%; height: 300px; border-radius: 21px 21px 0 0;"></div>
     </div>
-</div> -->
-
-<div class="card mb-4 shadow-sm">
-    <div class="card-header">
-        <h4 class="my-0 font-weight-normal">{{tienda.nameStore}}</h4>
-    </div>
-    <img class="bd-placeholder-img" width="250px" height="150px" src="{{tienda.urlImage}}">
-
-    <div class="card-body">
-        <ul class="list-unstyled mt-3 mb-4">
-            <li>{{tienda.locationStore}}</li>
-        </ul>
-        <button type="button" class="btn btn-lg btn-block btn-info">Contact us</button>
+    <div class="bg-light mr-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
+        <div class="my-3 py-3">
+            <h2 class="display-5">Another headline</h2>
+            <p class="lead">And an even wittier subheading.</p>
+        </div>
+        <div class="bg-white shadow-sm mx-auto" style="width: 80%; height: 300px; border-radius: 21px 21px 0 0;"></div>
     </div>
 </div>
+
+<footer class="page-footer font-small unique-color-dark">
+    <!-- Footer Links -->
+    <div class="container text-center text-md-left mt-5">
+        <!-- Grid row -->
+        <div class="row mt-3">
+            <!-- Grid column -->
+            <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+                <h6 class="text-uppercase font-weight-bold">Company name</h6>
+                <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
+                <p>Here you can use rows and columns to organize your footer content. Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+            </div>
+
+            <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+                <h6 class="text-uppercase font-weight-bold">Contacto</h6>
+                <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
+                <p>
+                    <i class="fas fa-home mr-3"></i>{{tienda.locationStore}}</p>
+                <p>
+                    <i class="fas fa-envelope mr-3"></i>{{tienda.nameStore}}@gmail.com</p>
+                <p>
+                    <i class="fas fa-phone mr-3"></i> + 01 234 567 88</p>
+                <p>
+            </div>
+        </div>
+    </div>
+</footer>

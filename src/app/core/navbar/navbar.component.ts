@@ -73,14 +73,7 @@ export class NavbarComponent {
               }
           });
       });
-    // , error => this.logService.print(error, LogService.ERROR_MSG));
-    // const dialogConfig = new MatDialogConfig();
 
-    // dialogConfig.disableClose = false;
-    // dialogConfig.autoFocus = true;
-    // dialogConfig.width = "50%";
-
-    // this.dialog.open(LoginComponent, dialogConfig);
   }
 
   signin() {
@@ -131,12 +124,7 @@ export class NavbarComponent {
     this.displaylogin=true;
   }
 
-  search : string;
- 
-  buscar(){
-    console.log("Se va a buscar "+ this.search);
-    localStorage.setItem( "search", this.search);
-  }
+  
 }
 
 

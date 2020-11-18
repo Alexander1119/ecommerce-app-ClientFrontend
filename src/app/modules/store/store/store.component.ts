@@ -1,5 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Tienda } from '../../../Shared/Models/Tienda';
+import { ActivatedRoute } from '@angular/router';
+import { ServiceService } from '../../../core/Service/service.service';
 
 @Component({
   selector: 'app-store',
@@ -8,11 +10,24 @@ import { Tienda } from '../../../Shared/Models/Tienda';
 })
 export class StoreComponent implements OnInit {
 
-  @Input('tienda') tienda: Tienda;
-
-  constructor() { }
+  tienda: Tienda;
+  constructor(
+    private service: ServiceService,
+    private activatedRoute: ActivatedRoute
+  ) { }
 
   ngOnInit(): void {
   }
 
+  cargarTienda(){
+    const id = this.activatedRoute.snapshot.params.id;
+    this.service.store(id).subscribe(
+      data => {
+        this.tienda = data;
+      },
+      err => {
+        console.log(err);
+      }
+    );
+  }
 }

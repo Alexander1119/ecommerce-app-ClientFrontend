@@ -1,11 +1,31 @@
-<!-- <div class="componente-producto" *ngFor="let producto of productos">
-    <app-product [producto]='producto'></app-product>
-</div> -->
+<div class="row">
+    <div class="col">
+        <div class="form-group">
+            <input type="text" class="form-control" name="filterPost" placeholder="Search..." [(ngModel)]="filterPost">
+        </div>
+    </div>
+</div>
 
-<mat-grid-list cols="3" rowHeight="600px">
-    <mat-grid-tile *ngFor="let producto of productos">
-        <app-product [producto]='producto'></app-product>
+
+<mat-grid-list [cols]="breakpoint" rowHeight="2:3" (window:resize)="onResize($event)">
+    <mat-grid-tile *ngFor="let producto of productos | filter:filterPost">
+        <div class="card mb-4 shadow-sm">
+            <div class="card-header">
+                <h4 class="my-0 font-weight-normal">{{producto.name}}</h4>
+            </div>
+            <img class="bd-placeholder-img" width="250px" height="150px" src="https://sgfm.elcorteingles.es/SGFM/dctm/MEDIA02/CONTENIDOS/201410/02/00155770100463____2__600x600.jpg">
+
+            <div class="card-body">
+                <button type="button" class="btn btn-default" (click)="decUnidad()">-</button>
+                <input type="text" class="btn btn-default cantidad" value="1" [(ngModel)]="unidades" readonly>
+                <button type="button" class="btn btn-default" (click)="aumUnidad()">+</button>
+
+                <ul class="list-unstyled mt-3 mb-4">
+                    <li>{{producto.cost}} Bs.</li>
+                    <li>{{producto.description}}</li>
+                </ul>
+                <button type="button" class="btn btn-lg btn-block btn-info">AGREGAR AL CARRO</button>
+            </div>
+        </div>
     </mat-grid-tile>
 </mat-grid-list>
-
-<app-navbar (messageEvent)="receiveMessage($event)"></app-navbar>
