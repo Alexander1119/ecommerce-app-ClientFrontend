@@ -55,4 +55,10 @@ export class ListProductComponent implements OnInit {
       this.unidades--;
     }
   }
+
+
+  agregarCarrito(id:number){
+    console.log("El iod del proiducto seleccionado es: "+id);
+    
+  }
 }

@@ -21,7 +21,7 @@ export class StoreComponent implements OnInit {
 
   cargarTienda(){
     const id = this.activatedRoute.snapshot.params.id;
-    this.service.store(id).subscribe(
+    this.service.storeid(id).subscribe(
       data => {
         this.tienda = data;
       },

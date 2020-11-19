@@ -45,6 +45,7 @@ import { NgbModalModule, NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { CartComponent } from './modules/product/cart/cart.component';
 import { ProductComponent } from './modules/product/product/product.component';
 import { FilterPipe } from './modules/filter/filter.pipe';
+import { FilterProductPipe } from './modules/filter/filter-product.pipe';
 
 
 
@@ -61,7 +62,8 @@ import { FilterPipe } from './modules/filter/filter.pipe';
     ListProductComponent,
     CartComponent,
     ProductComponent,
-    FilterPipe
+    FilterPipe,
+    FilterProductPipe
   ],
   imports: [
     BrowserModule,

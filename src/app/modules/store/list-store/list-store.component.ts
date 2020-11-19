@@ -37,7 +37,8 @@ export class ListStoreComponent implements OnInit {
   }
 
   cargarListStore(): void {
-    this.tiendas = this.service.listStore();
+
+    this.tiendas = this.service.listStore2();
     console.log('Lista de tienda: %o', this.tiendas);
   }
 
@@ -50,18 +51,5 @@ export class ListStoreComponent implements OnInit {
 
   listStoreToSearch: Tienda[] = [];
 
-  updateListStore(){
-    
-     this.tiendas.forEach(element => {
-       if (this.search!=undefined) {
-        if (element.nameStore==this.search) {
-          this.listStoreToSearch.push(element);
-          this.tiendas=this.listStoreToSearch;
-        }
-       }else{
-        this.tiendas = this.service.listStore();
-       }
-     });
-      
-  }
+
 }

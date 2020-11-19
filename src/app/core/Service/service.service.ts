@@ -19,6 +19,7 @@ export class ServiceService {
   client = 'http://localhost:8080/ejemplo01/k1/cliente';
   product = 'http://localhost:8080/ejemplo01/k1/producto';
   person = 'http://localhost:8080/ejemplo01/k1/persona';
+  store = 'http://localhost:8080/ejemplo01/k1/store';
 
   // Client
 
@@ -44,7 +45,7 @@ export class ServiceService {
   }
 
   listProduct(){
-    return this.http.get<Producto[]>(this.product+"/productlist");
+    return this.http.get<Producto[]>(this.product+"/productlistcloud");
   }
 
 
@@ -52,8 +53,14 @@ export class ServiceService {
 
 
   tiendas = new Array<Tienda>();
+
+
   //Store
-  listStore() {
+
+  listStore(){
+    return this.http.get<Tienda[]>(this.store+"/storelistcloud");
+  }
+  listStore2() {
     // return this.http.get("D:\Universidad Catolica Boliviana\8vo semestre\Taller de sistenas de informacion\ecommerce-app-frontend\ClienteFrontend\src\app\Shared\Models\DatosTienda.json");
     
     this.tiendas = [];
@@ -78,8 +85,8 @@ export class ServiceService {
   }
 
 
-  store(id: number){
-    return this.http.get<Tienda>(this.person + '/usernick/'+id);
-  
+  storeid(id: number){
+    return this.http.get<Tienda>(this.store + '/idstore/'+id);
+
   }
 }
