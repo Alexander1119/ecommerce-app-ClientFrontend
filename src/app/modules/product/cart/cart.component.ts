@@ -4,6 +4,8 @@ import {SelectionModel} from '@angular/cdk/collections';
 import { Producto } from '../../../Shared/Models/Producto';
 import { ServiceService } from '../../../core/Service/service.service';
 import { ProductoCarrito } from '../../../Shared/Models/Pedido';
+import { Observable } from 'rxjs';
+import { ServiceCartService } from '../../../core/Service/service-cart.service';
 
 @Component({
   selector: 'app-cart',
@@ -14,21 +16,34 @@ import { ProductoCarrito } from '../../../Shared/Models/Pedido';
 export class CartComponent implements OnInit {
   // ProductosCarrito: Producto[]=[];
   // ProductoCarrito: Producto;
-  @Input('productoAniadido') productoAniadido: ProductoCarrito;
+
+  public productos: Array<Producto>;
+
   listaCompra: ProductoCarrito[];
 
-   constructor(private service: ServiceService) {
-     console.log('CarritoComponent.constructor(%o)', this.productoAniadido);
+   constructor(
+     private service: ServiceService,
+     private serviceCart: ServiceCartService) {
     }
 
   ngOnInit(): void {
-    this.carrito();
+    // this.carrito();
+
+    this.serviceCart.currentDataCart$.subscribe(
+      data =>
+      {
+        this.productos = data;
+      }
+    );
+
+
+
+
+
   }
 
   carrito(){
-    console.log(this.productoAniadido.producto.name);
-    this.listaCompra.push(this.productoAniadido);
-
+  
     // console.log("El id del producto en el carrito es :"+localStorage.getItem("CarritoProducto"));
     // var arrayId=localStorage.getItem("CarritoProductos");
 

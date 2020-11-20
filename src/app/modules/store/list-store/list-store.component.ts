@@ -9,7 +9,7 @@ import { ServiceService } from '../../../core/Service/service.service';
   styleUrls: ['./list-store.component.css']
 })
 export class ListStoreComponent implements OnInit {
-  filterPost='';
+  filterPost = '';
   tiendas: Tienda[] = [];
   breakpoint: number;
   proporsion:string;
@@ -24,16 +24,12 @@ export class ListStoreComponent implements OnInit {
   onResize(event) {
     let tampan = screen.width;
     if (event.target.innerWidth >= tampan*0.75) {
-      this.breakpoint=3;
+      this.breakpoint = 3;
     }if (event.target.innerWidth <= tampan*0.75 && event.target.innerWidth >= tampan*0.4) {
-      this.breakpoint=2;
+      this.breakpoint = 2;
     }if (event.target.innerWidth <= tampan*0.4) {
-      this.breakpoint=1;
+      this.breakpoint = 1;
     }
-    // this.breakpoint = (event.target.innerWidth <= 400) ? 1 : 3;
-    // console.log(this.breakpoint);
-    // console.log("Tamaño pantalla "+event.target.innerWidth);
-
   }
 
   cargarListStore(): void {
@@ -41,8 +37,4 @@ export class ListStoreComponent implements OnInit {
       this.tiendas = data;
     });
   }
-
-
-
-
 }

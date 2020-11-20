@@ -1,6 +1,7 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { ServiceService } from '../../../core/Service/service.service';
 import { Producto } from '../../../Shared/Models/Producto';
+import { ServiceCartService } from '../../../core/Service/service-cart.service';
 
 @Component({
   selector: 'app-list-product',
@@ -15,7 +16,9 @@ export class ListProductComponent implements OnInit {
   filterPost="";
   @Output() productoAniadido = new EventEmitter();
 
-  constructor( private service: ServiceService, ) {
+  constructor( 
+    private service: ServiceService, 
+    private seriveCart: ServiceCartService) {
       this.unidades=1;
    }
 
@@ -60,19 +63,20 @@ export class ListProductComponent implements OnInit {
   }
 
   producto : Producto;
-  agregarCarrito(id:number){
+  agregarCarrito(producto:Producto ){
     
-    this.service.idProduct(id).subscribe(
-      data=>{
-        this.producto = data;
-        console.log("El producto "+id+" que se agrega al carrito es: "+this.producto.name);
+      this.seriveCart.changeCart(producto);
+    // this.service.idProduct(id).subscribe(
+    //   data=>{
+    //     this.producto = data;
+    //     console.log("El producto "+id+" que se agrega al carrito es: "+this.producto.name);
         
-      }
-    );
+    //   }
+    // );
 
-    this.productoAniadido.emit({
-      'producto':this.producto,
-      'unidades':1
-    });
+    // this.productoAniadido.emit({
+    //   'producto':this.producto,
+    //   'unidades':1
+    // });
   }
 }

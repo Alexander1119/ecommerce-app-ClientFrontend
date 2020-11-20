@@ -59,7 +59,7 @@ export class ServiceService {
   //Store
 
   listStore(){
-    return this.http.get<Tienda[]>(this.store+"/storelistcloud");
+    return this.http.get<Tienda[]>(this.store+"/storelist");
   }
 
 
