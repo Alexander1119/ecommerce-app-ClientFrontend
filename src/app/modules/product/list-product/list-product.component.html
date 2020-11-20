@@ -16,9 +16,13 @@
             <img class="bd-placeholder-img" width="250px" height="150px" src="{{producto.urlImage}}">
 
             <div class="card-body">
-                <button type="button" class="btn btn-default" (click)="decUnidad()">-</button>
-                <input type="text" class="btn btn-default cantidad" value="1" [(ngModel)]="unidades" readonly>
-                <button type="button" class="btn btn-default" (click)="aumUnidad()">+</button>
+
+
+                <button class="btn btn-outline-secondary" (click)="decUnidad()" type="button">-</button>
+                <input type="text" class="inputNumber" value="1" [(ngModel)]="unidades" readonly>
+
+                <button class="btn btn-outline-secondary" (click)="aumUnidad()" type="button">+</button>
+
 
                 <ul class="list-unstyled mt-3 mb-4">
                     <li>{{producto.cost}} Bs.</li>

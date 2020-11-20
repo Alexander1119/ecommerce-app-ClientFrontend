@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { ServiceService } from '../../../core/Service/service.service';
 import { Producto } from '../../../Shared/Models/Producto';
 
@@ -13,9 +13,10 @@ export class ListProductComponent implements OnInit {
   unidades: number;
   breakpoint: number;
   filterPost="";
-  constructor( private service: ServiceService, ) {
-    this.unidades = 1;
+  @Output() productoAniadido = new EventEmitter();
 
+  constructor( private service: ServiceService, ) {
+      this.unidades=1;
    }
 
   ngOnInit(): void {
@@ -38,6 +39,8 @@ export class ListProductComponent implements OnInit {
     this.service.listProduct().subscribe(data => {
       this.productos = data;
     });
+
+
   }
 
 
@@ -56,9 +59,20 @@ export class ListProductComponent implements OnInit {
     }
   }
 
-
+  producto : Producto;
   agregarCarrito(id:number){
-    console.log("El iod del proiducto seleccionado es: "+id);
     
+    this.service.idProduct(id).subscribe(
+      data=>{
+        this.producto = data;
+        console.log("El producto "+id+" que se agrega al carrito es: "+this.producto.name);
+        
+      }
+    );
+
+    this.productoAniadido.emit({
+      'producto':this.producto,
+      'unidades':1
+    });
   }
 }

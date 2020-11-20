@@ -45,14 +45,15 @@ export class ServiceService {
   }
 
   listProduct(){
-    return this.http.get<Producto[]>(this.product+"/productlistcloud");
+    return this.http.get<Producto[]>(this.product+"/productlist");
+  }
+
+  idProduct(id:number){
+    return this.http.get<Producto>(this.product+"/idproducto/"+id);
   }
 
 
 
-
-
-  tiendas = new Array<Tienda>();
 
 
   //Store
@@ -60,33 +61,14 @@ export class ServiceService {
   listStore(){
     return this.http.get<Tienda[]>(this.store+"/storelistcloud");
   }
-  listStore2() {
-    // return this.http.get("D:\Universidad Catolica Boliviana\8vo semestre\Taller de sistenas de informacion\ecommerce-app-frontend\ClienteFrontend\src\app\Shared\Models\DatosTienda.json");
-    
-    this.tiendas = [];
-    let tienda;
-
-    const jsonData = JSON.parse(DatosTienda.tiendas);
-
-    jsonData.forEach( element => {
-
-      tienda = new Tienda(
-        element.idStore,
-        element.nameStore,
-        element.locationStore,
-        element.urlImage,
-        element.nameImage
-      );
-
-      this.tiendas.push(tienda);
-
-    });
-    return this.tiendas;
-  }
 
 
   storeid(id: number){
     return this.http.get<Tienda>(this.store + '/idstore/'+id);
 
+  }
+
+  listProductOfStore(id:number){
+    return this.http.get<Producto[]>(this.product+'/productlist/'+id);
   }
 }

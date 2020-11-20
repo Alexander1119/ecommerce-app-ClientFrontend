@@ -37,19 +37,12 @@ export class ListStoreComponent implements OnInit {
   }
 
   cargarListStore(): void {
-
-    this.tiendas = this.service.listStore2();
-    console.log('Lista de tienda: %o', this.tiendas);
+    this.service.listStore().subscribe(data => {
+      this.tiendas = data;
+    });
   }
 
-  search:string;
-  // receiveMessage() {
-  //    this.search = localStorage.getItem("search");
-  //   console.log("en store lo que se va a buscar es: "+this.search);
-    
-  // }
 
-  listStoreToSearch: Tienda[] = [];
 
 
 }

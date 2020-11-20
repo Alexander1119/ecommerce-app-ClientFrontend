@@ -1,18 +1,46 @@
-<div class="d-md-flex flex-md-equal w-100 my-md-3 pl-md-3">
-    <div class="bg-light mr-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
-        <div class="my-3 p-3">
-            <h2 class="display-5">Another headline</h2>
-            <p class="lead">And an even wittier subheading.</p>
+<div>
+    <div class="row">
+        <div class="col">
+            <div class="form-group">
+                <input type="text" class="form-control" name="filterPost" placeholder="Search..." [(ngModel)]="filterPost">
+            </div>
         </div>
-        <div class="bg-white shadow-sm mx-auto" style="width: 80%; height: 300px; border-radius: 21px 21px 0 0;"></div>
     </div>
-    <div class="bg-light mr-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
-        <div class="my-3 py-3">
-            <h2 class="display-5">Another headline</h2>
-            <p class="lead">And an even wittier subheading.</p>
-        </div>
-        <div class="bg-white shadow-sm mx-auto" style="width: 80%; height: 300px; border-radius: 21px 21px 0 0;"></div>
-    </div>
+
+
+    <mat-grid-list [cols]="breakpoint" rowHeight="2:3" (window:resize)="onResize($event)">
+        <mat-grid-tile *ngFor="let producto of productos | filterProduct:filterPost">
+            <div class="card mb-4 shadow-sm">
+                <div class="card-header">
+                    <h4 class="my-0 font-weight-normal">{{producto.name}}</h4>
+                </div>
+                <img class="bd-placeholder-img" width="250px" height="150px" src="{{producto.urlImage}}">
+
+                <div class="card-body">
+
+
+                    <div class="input-group-prepend">
+                        <button class="btn btn-outline-secondary" (click)="decUnidad()" type="button">-</button>
+                        <input type="text" class="inputNumber" value="1" [(ngModel)]="unidades" readonly>
+
+                        <button class="btn btn-outline-secondary" (click)="aumUnidad()" type="button">+</button>
+                    </div>
+
+
+                    <ul class="list-unstyled mt-3 mb-4">
+                        <li>{{producto.cost}} Bs.</li>
+                        <li>{{producto.description}}</li>
+                    </ul>
+                    <button type="button" class="btn btn-lg btn-block btn-info">AGREGAR AL CARRO</button>
+                </div>
+            </div>
+        </mat-grid-tile>
+    </mat-grid-list>
+
+
+
+
+
 </div>
 
 <footer class="page-footer font-small unique-color-dark">
@@ -35,7 +63,7 @@
                 <p>
                     <i class="fas fa-envelope mr-3"></i>{{tienda.nameStore}}@gmail.com</p>
                 <p>
-                    <i class="fas fa-phone mr-3"></i> + 01 234 567 88</p>
+                    <i class="fas fa-phone mr-3"></i>{{tienda.telefono}}</p>
                 <p>
             </div>
         </div>
