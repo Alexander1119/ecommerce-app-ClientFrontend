@@ -7,4 +7,6 @@
     secondLastName: string;
     mail: string;
     password: string;
+    urlImage: string;
+    nameImage: string;
 }

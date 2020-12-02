@@ -47,6 +47,8 @@ export class SigninComponent implements OnInit {
     this.client.secondLastName = this.secondLastName;
     this.client.mail = this.email;
     this.client.password = this.password;
+    this.client.urlImage='https://cdn4.iconfinder.com/data/icons/small-n-flat/24/user-alt-512.png';
+    this.client.nameImage='image1';
     console.log(this.Cliente.value);
 
 
