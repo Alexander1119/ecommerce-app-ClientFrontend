@@ -122,6 +122,9 @@ export class NavbarComponent {
   logout(){
     this.nombreToolbar='';
     this.displaylogin=true;
+    localStorage.removeItem('client');
+    localStorage.removeItem('idClient');
+
   }
 
   

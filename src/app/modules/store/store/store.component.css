@@ -11,3 +11,9 @@
 .buttonclick {
     width: 100%;
 } */
+
+.inputNumber {
+    width: auto;
+    text-align: center;
+    height: auto;
+}

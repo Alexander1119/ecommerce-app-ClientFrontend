@@ -1,4 +1,14 @@
 <div>
+    <h1 ALIGN='CENTER'>{{tienda.nameStore}}</h1>
+</div>
+
+
+<div ALIGN='CENTER'>
+
+    <img class="imageCentro" width="400px" height="400px" src="{{tienda.urlImage}}">
+
+</div>
+<div>
     <div class="row">
         <div class="col">
             <div class="form-group">
@@ -7,7 +17,7 @@
         </div>
     </div>
 
-
+    <h2>Productos de la tienda</h2>
     <mat-grid-list [cols]="breakpoint" rowHeight="2:3" (window:resize)="onResize($event)">
         <mat-grid-tile *ngFor="let producto of productos | filterProduct:filterPost">
             <div class="card mb-4 shadow-sm">
@@ -36,11 +46,6 @@
             </div>
         </mat-grid-tile>
     </mat-grid-list>
-
-
-
-
-
 </div>
 
 <footer class="page-footer font-small unique-color-dark">
@@ -49,11 +54,6 @@
         <!-- Grid row -->
         <div class="row mt-3">
             <!-- Grid column -->
-            <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
-                <h6 class="text-uppercase font-weight-bold">Company name</h6>
-                <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
-                <p>Here you can use rows and columns to organize your footer content. Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-            </div>
 
             <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
                 <h6 class="text-uppercase font-weight-bold">Contacto</h6>

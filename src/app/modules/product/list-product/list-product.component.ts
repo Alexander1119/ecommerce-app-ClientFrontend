@@ -2,6 +2,9 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { ServiceService } from '../../../core/Service/service.service';
 import { Producto } from '../../../Shared/Models/Producto';
 import { ServiceCartService } from '../../../core/Service/service-cart.service';
+import { element } from 'protractor';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { CompraProducto } from '../../../Shared/Models/CompraProducto';
 
 @Component({
   selector: 'app-list-product',
@@ -11,20 +14,32 @@ import { ServiceCartService } from '../../../core/Service/service-cart.service';
 export class ListProductComponent implements OnInit {
 
   productos: Producto[] = [];
-  unidades: number;
+  // unidades: number;
   breakpoint: number;
-  filterPost="";
+  filterPost = "";
+   unidades= [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1];
+   tamaño : number;
+
+   compraProducto: CompraProducto;
   @Output() productoAniadido = new EventEmitter();
 
   constructor( 
     private service: ServiceService, 
-    private seriveCart: ServiceCartService) {
-      this.unidades=1;
+    private seriveCart: ServiceCartService,
+    public snackBar: MatSnackBar) {
    }
 
   ngOnInit(): void {
     this.cargarListProduct();
     this.breakpoint=3;
+  }
+
+  formatLabel(value: number) {
+    if (value >= 1000) {
+      return Math.round(value / 1000) ;
+    }
+
+    return value;
   }
 
   onResize(event) {
@@ -42,41 +57,46 @@ export class ListProductComponent implements OnInit {
     this.service.listProduct().subscribe(data => {
       this.productos = data;
     });
-
-
   }
 
 
-  aumUnidad() {
-    console.log('ProductoComponent.aumUnidad(%s)', this.unidades + 1);
-    this.unidades++;
+  aumUnidad(id: number) {
+    console.log('ProductoComponent.aumUnidad(%s)', this.unidades[id] + 1);
+    this.unidades[id]++;
   }
 
   /**
    * Decrecer unidades del producto
    */
-  decUnidad() {
-    console.log('ProductoComponent.decUnidad(%s)', this.unidades - 1);
-    if (this.unidades > 1) {
-      this.unidades--;
+  decUnidad(id: number) {
+    console.log('ProductoComponent.decUnidad(%s)', this.unidades[id] - 1);
+    if (this.unidades[id] > 1) {
+      this.unidades[id]--;
     }
   }
 
   producto : Producto;
-  agregarCarrito(producto:Producto ){
-    
-      this.seriveCart.changeCart(producto);
-    // this.service.idProduct(id).subscribe(
-    //   data=>{
-    //     this.producto = data;
-    //     console.log("El producto "+id+" que se agrega al carrito es: "+this.producto.name);
-        
-    //   }
-    // );
+  contador:number=1;
+  agregarCarrito(producto: Producto , id: number){
+      
+    this.contador++;
+   
+    var nickName = localStorage.getItem('client');
+    console.log("El usuario es: "+nickName);
 
-    // this.productoAniadido.emit({
-    //   'producto':this.producto,
-    //   'unidades':1
-    // });
+    if (nickName != null) {
+
+      var compro=new CompraProducto((Math.random()),producto.idProduct,1,id,producto.cost*id);
+      
+      console.log("Se manda a carrito el producto: "+producto.name+" cantidad: "+id);
+      this.seriveCart.changeCart(compro);
+    }else{
+      this.snackBar.open('Debe Iniciar sesion para agregar al carrito  ', '', {duration: 2000, });
+    }
+  }
+
+
+  calificar(id:number){
+    
   }
 }

@@ -24,6 +24,7 @@ import {MatInputModule} from '@angular/material/input';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import { FormsModule } from '@angular/forms';
 import {MatTableModule} from '@angular/material/table';
+import {MatSliderModule} from '@angular/material/slider';
 
 
 
@@ -91,7 +92,8 @@ import { FilterProductPipe } from './modules/filter/filter-product.pipe';
     MatTableModule,
     FormsModule,
     NgbModule,
-    NgbModalModule
+    NgbModalModule,
+    MatSliderModule
   ],
   providers: [ServiceService],
   bootstrap: [AppComponent],

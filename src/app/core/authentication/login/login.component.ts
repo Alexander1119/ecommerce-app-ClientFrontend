@@ -45,9 +45,10 @@ export class LoginComponent implements OnInit {
     .subscribe(data => {
       if (data != null) {
         this.clienReturn = data;
-      console.log(data);
+        console.log(data);
         console.log('Bienvenido ' + this.clienReturn.lastName);
-
+        localStorage.setItem('client',this.clienReturn.nicknameUser);
+        localStorage.setItem('idClient',this.clienReturn.idUser+"");
       }else{
 
         // this.contador++;
@@ -61,5 +62,9 @@ export class LoginComponent implements OnInit {
   cancelar() {
   
     this.dialogRef.close();
+
+    localStorage.removeItem("client");
+    localStorage.removeItem("idClient");
+
   }
 }

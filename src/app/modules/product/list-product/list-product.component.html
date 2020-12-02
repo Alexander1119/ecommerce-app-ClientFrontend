@@ -18,17 +18,22 @@
             <div class="card-body">
 
 
-                <button class="btn btn-outline-secondary" (click)="decUnidad()" type="button">-</button>
-                <input type="text" class="inputNumber" value="1" [(ngModel)]="unidades" readonly>
+                <button class="btn btn-outline-secondary" (click)="decUnidad(producto.idProduct)" type="button">-</button>
+                <input type="text" class="inputNumber" value="1" [(ngModel)]="unidades[producto.idProduct]" readonly>
 
-                <button class="btn btn-outline-secondary" (click)="aumUnidad()" type="button">+</button>
+                <button class="btn btn-outline-secondary" (click)="aumUnidad(producto.idProduct)" type="button">+</button>
 
 
                 <ul class="list-unstyled mt-3 mb-4">
                     <li>{{producto.cost}} Bs.</li>
                     <li>{{producto.description}}</li>
                 </ul>
-                <button type="button" class="btn btn-lg btn-block btn-info" (click)='agregarCarrito(producto)'>AGREGAR AL CARRO</button>
+
+                <mat-slider thumbLabel [displayWith]="formatLabel" tickInterval="1000" min="1" max="10"></mat-slider> <button mat-list-item (click)='calificar(producto.idProducto)'><mat-icon>check</mat-icon></button>
+
+                <button type="button" class="btn btn-lg btn-block btn-info" (click)='agregarCarrito(producto,unidades[producto.idProduct])'>AGREGAR AL CARRO</button>
+
+
             </div>
         </div>
     </mat-grid-tile>

@@ -3,9 +3,8 @@ import { HttpClient } from '@angular/common/http';
 import { Producto } from '../../Shared/Models/Producto';
 import { Cliente } from '../../Shared/Models/Cliente';
 import { Tienda } from '../../Shared/Models/Tienda';
-
 import { element } from 'protractor';
-import { DatosTienda } from '../../Shared/Models/DatosTienda';
+import { Compra } from '../../Shared/Models/Compra';
 
 
 
@@ -20,7 +19,7 @@ export class ServiceService {
   product = 'http://localhost:8080/ejemplo01/k1/producto';
   person = 'http://localhost:8080/ejemplo01/k1/persona';
   store = 'http://localhost:8080/ejemplo01/k1/store';
-
+  compra = 'http://localhost:8080/ejemplo01/k1/compra/producto'
   // Client
 
   loginClient( client: Cliente){
@@ -70,5 +69,15 @@ export class ServiceService {
 
   listProductOfStore(id:number){
     return this.http.get<Producto[]>(this.product+'/productlist/'+id);
+  }
+
+
+
+
+
+  //Compra
+  CompraProductos(compra: Compra, tipoCompra: number, idUser: number){
+    return this.http.put<number>(this.compra+"/addCompraCloud/"+tipoCompra+"/"+idUser,compra);
+
   }
 }

@@ -1,25 +1,26 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 import { Producto } from '../../Shared/Models/Producto';
+import { CompraProducto } from '../../Shared/Models/CompraProducto';
 
 
 @Injectable({
   providedIn: 'root'
 })
 export class ServiceCartService {
-  private cart = new BehaviorSubject<Array<Producto>>(null);
+  private cart = new BehaviorSubject<Array<CompraProducto>>(null);
   public currentDataCart$ = this.cart.asObservable();
   constructor() { }
 
 
-  public changeCart(newData: Producto) {
+  public changeCart(newData: CompraProducto) {
     //Obtenemos el valor actual
     let listCart = this.cart.getValue();
     //Si no es el primer item del carrito
     if(listCart)
     {
       //Buscamos si ya cargamos ese item en el carrito
-      let objIndex = listCart.findIndex((obj => obj.idProduct == newData.idProduct));
+      let objIndex = listCart.findIndex((obj => obj.idCompra == newData.idCompra));
       //Si ya cargamos uno aumentamos su cantidad
       if(objIndex != -1)
       {

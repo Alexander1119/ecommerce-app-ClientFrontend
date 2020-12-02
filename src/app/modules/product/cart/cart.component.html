@@ -1,16 +1,36 @@
 <table class="table">
     <thead>
         <tr>
-            <th scope="col">Nombre</th>
-            <th scope="col">Codigo</th>
+            <th scope="col">Id producto</th>
+            <th scope="col">Cantidad</th>
             <th scope="col">Precio</th>
         </tr>
     </thead>
     <tbody>
         <tr *ngFor='let producto of productos'>
-            <td>{{producto.name}}</td>
-            <td>{{producto.code}}</td>
-            <td>{{producto.cost}}</td>
+            <td>{{producto.id_producto}}</td>
+            <td>{{producto.quantity}}</td>
+            <td>{{producto.precio}}</td>
         </tr>
     </tbody>
+
+
 </table>
+
+<div *ngIf="display">
+    <mat-radio-group aria-labelledby="example-radio-group-label" class="example-radio-group" [(ngModel)]="favoriteSeason">
+        <mat-radio-button class="example-radio-button" *ngFor="let season of seasons" [value]="season">
+            {{season}}
+            <br>
+        </mat-radio-button>
+        <br>
+    </mat-radio-group>
+    <button type="button" class="btn btn-lg  btn-info" (click)='metodoPago()'>ACEPTAR</button>
+
+
+    <br>
+    <br>
+    <button class="btn btn-lg  btn-info" (click)='paypal()' target="blank">Paypal</button>
+
+
+</div>
